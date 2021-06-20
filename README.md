@@ -5,7 +5,6 @@ C195 Scheduling Application
 A scheduling user interface for Western Governors University C195 course
 
 Prerequisites:
-IntelliJ IDEA or Apache Netbeans 11+
 Scene Builder
 mySQL
 JDK 11
