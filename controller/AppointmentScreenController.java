@@ -224,67 +224,7 @@ public class AppointmentScreenController implements Initializable
     void monthRadio(ActionEvent event)
     {
         // method used to filter by all appointments until the end of the month
-        filteredbyEndofMonth(appList);
-
-        // The long version of filtering the list by the the end of the month
-        /* 
-        try
-        {
-            appList.clear();
-            PreparedStatement ps = conn.prepareStatement(
-              "SELECT * FROM appointments, customers, users, contacts "
-              + "WHERE appointments.User_ID = users.User_ID "
-              + "AND appointments.Contact_ID = contacts.Contact_ID "
-              + "AND appointments.Customer_ID = customers.Customer_ID "
-              + "AND Start BETWEEN NOW() AND  ADDDATE(LAST_DAY(NOW()), 1)"
-              + "ORDER BY Start");
-
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next())
-            {
-                // assign data from DB to variables that can be inserted to an observablelist
-                int appointmentID = rs.getInt("Appointment_ID");
-                String title = rs.getString("Title");
-                String description = rs.getString("Description");
-                String location = rs.getString("Location");
-                String type = rs.getString("Type");
-                LocalDateTime start = rs.getTimestamp("Start").toLocalDateTime();
-                LocalDateTime end = rs.getTimestamp("End").toLocalDateTime();
-                int customerID = rs.getInt("Customer_ID");
-                String contactName = rs.getString("Contact_Name");
-                String customerName = rs.getString("Customer_Name");
-
-                // Other data not needed for table 
-                LocalDateTime createdDate = rs.getTimestamp("Create_Date").toLocalDateTime();
-                String createdBy = rs.getString("Created_By");
-                Timestamp lastUpdate = rs.getTimestamp("Last_Update");
-                String lastUpdatedBy = rs.getString("Last_Updated_By");
-                int contactID = rs.getInt("Contact_ID");
-
-                int userID = userNow.getuserID();
-
-                appList.add(new Appointments(appointmentID, title, description,
-                  location, type, start, end, createdDate, createdBy, lastUpdate,
-                  lastUpdatedBy, customerID, userID, contactID, contactName, customerName));
-            }
-
-            // Set all appointments on the table
-            apptTable.setItems(appList);
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("SQL error!");
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("Non-SQL error!");
-        }
-         */
+        filteredbyEndofMonth(appList); 
     }
 
     /**
@@ -298,66 +238,6 @@ public class AppointmentScreenController implements Initializable
     {
         // method used to filter by 7 days
         filteredbyWeek(appList);
-
-        // The long version of filtering the list by the next 7 days
-        /*
-        try
-        {
-            appList.clear();
-            PreparedStatement ps = conn.prepareStatement(
-              "SELECT * FROM appointments, customers, users, contacts "
-              + "WHERE appointments.User_ID = users.User_ID "
-              + "AND appointments.Contact_ID = contacts.Contact_ID "
-              + "AND appointments.Customer_ID = customers.Customer_ID "
-              + "AND Start BETWEEN NOW() AND ADDDATE(NOW(), INTERVAL 7 DAY)"
-              + "ORDER BY Start");
-
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next())
-            {
-                // assign data from DB to variables that can be inserted to an observablelist
-                int appointmentID = rs.getInt("Appointment_ID");
-                String title = rs.getString("Title");
-                String description = rs.getString("Description");
-                String location = rs.getString("Location");
-                String type = rs.getString("Type");
-                LocalDateTime start = rs.getTimestamp("Start").toLocalDateTime();
-                LocalDateTime end = rs.getTimestamp("End").toLocalDateTime();
-                int customerID = rs.getInt("Customer_ID");
-                String contactName = rs.getString("Contact_Name");
-                String customerName = rs.getString("Customer_Name");
-
-                // Other data not needed for table 
-                LocalDateTime createdDate = rs.getTimestamp("Create_Date").toLocalDateTime();
-                String createdBy = rs.getString("Created_By");
-                Timestamp lastUpdate = rs.getTimestamp("Last_Update");
-                String lastUpdatedBy = rs.getString("Last_Updated_By");
-                int contactID = rs.getInt("Contact_ID");
-
-                int userID = userNow.getuserID();
-
-                appList.add(new Appointments(appointmentID, title, description,
-                  location, type, start, end, createdDate, createdBy, lastUpdate,
-                  lastUpdatedBy, customerID, userID, contactID, contactName, customerName));
-            }
-
-            // Set all appointments on the table
-            apptTable.setItems(appList);
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("SQL error!");
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("Non-SQL error!");
-        }
-         */
     }
 
     /**
@@ -371,66 +251,6 @@ public class AppointmentScreenController implements Initializable
     {
         // method used to filter by 30 days
         filteredbyNextMonth(appList);
-
-        // The long version of filtering the list by the next 30 days
-        /*
-        try
-        {
-            appList.clear();
-            PreparedStatement ps = conn.prepareStatement(
-              "SELECT * FROM appointments, customers, users, contacts "
-              + "WHERE appointments.User_ID = users.User_ID "
-              + "AND appointments.Contact_ID = contacts.Contact_ID "
-              + "AND appointments.Customer_ID = customers.Customer_ID "
-              + "AND Start BETWEEN NOW() AND  ADDDATE(NOW(), INTERVAL 30 DAY)"
-              + "ORDER BY Start");
-
-            ResultSet rs = ps.executeQuery();
-
-            while(rs.next())
-            {
-                // assign data from DB to variables that can be inserted to an observablelist
-                int appointmentID = rs.getInt("Appointment_ID");
-                String title = rs.getString("Title");
-                String description = rs.getString("Description");
-                String location = rs.getString("Location");
-                String type = rs.getString("Type");
-                LocalDateTime start = rs.getTimestamp("Start").toLocalDateTime();
-                LocalDateTime end = rs.getTimestamp("End").toLocalDateTime();
-                int customerID = rs.getInt("Customer_ID");
-                String contactName = rs.getString("Contact_Name");
-                String customerName = rs.getString("Customer_Name");
-
-                // Other data not needed for table 
-                LocalDateTime createdDate = rs.getTimestamp("Create_Date").toLocalDateTime();
-                String createdBy = rs.getString("Created_By");
-                Timestamp lastUpdate = rs.getTimestamp("Last_Update");
-                String lastUpdatedBy = rs.getString("Last_Updated_By");
-                int contactID = rs.getInt("Contact_ID");
-
-                int userID = userNow.getuserID();
-
-                appList.add(new Appointments(appointmentID, title, description,
-                  location, type, start, end, createdDate, createdBy, lastUpdate,
-                  lastUpdatedBy, customerID, userID, contactID, contactName, customerName));
-            }
-
-            // Set all appointments on the table
-            apptTable.setItems(appList);
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("SQL error!");
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-            System.out.println("Non-SQL error!");
-        }
-         */
     }
 
     /**
