@@ -2,7 +2,7 @@
 
 C195 Scheduling Application
 
-A scheduling user interface for Western Governors University C195 course
+An appointment management system for Western Governors University C195 course
 
 Prerequisites:  
 Scene Builder  
