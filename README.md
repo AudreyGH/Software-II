@@ -29,7 +29,7 @@ statement is used when the "SAVE" button is pressed.
 Report Choice:
 
 The report is a simple pie chart that represents the total number of customers for each day. The data
-is from all the appoinments saved in the database. The chart serves to give the user an visual 
+is from all the appoinments saved in the database. The chart serves to give the user a visual 
 representation of the busiest and slowest days. 
 
 Author: Audrey Hababag  
